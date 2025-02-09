@@ -9,7 +9,7 @@ export default function (line, context = {}) {
 	ret.commit = line.match(/^[0-9a-f]{6,}/i)[0];
 	line = line.slice(ret.commit.length + 1);
 
-	let commitInfo = line.match(/^.*?\((?<author>.+?)\s+(?<date>\d{4}-\d{2}-\d{2}) (?<time>\d{2}:\d{2}:\d{2}) (?<timezone>-?\d{4})\s+\d+\) /);
+	let commitInfo = line.match(/^.*?\((?<author>.+?)\s+(?<date>\d{4}-\d{2}-\d{2}) (?<time>\d{2}:\d{2}:\d{2}) (?<timezone>[+-]?\d{4})\s+\d+\) /);
 
 	if (commitInfo === null) {
 		console.error("No match for", line);
